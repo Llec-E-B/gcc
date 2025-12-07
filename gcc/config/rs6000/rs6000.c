@@ -1349,6 +1349,12 @@ rtl_opt_pass *make_pass_analyze_swaps (gcc::context*);
 static bool rs6000_keep_leaf_when_profiled () __attribute__ ((unused));
 static tree rs6000_fold_builtin (tree, int, tree *, bool);
 
+#ifdef POWERPC_CELL64LV2
+
+static bool rs6000_cell64lv2_valid_pointer_mode(enum machine_mode);
+
+#endif
+
 /* Hash table stuff for keeping track of TOC entries.  */
 
 struct GTY((for_user)) toc_hash_struct
@@ -43333,7 +43339,19 @@ rs6000_optab_supported_p (int op, machine_mode mode1, machine_mode,
       return true;
     }
 }
-
+
+#ifdef POWERPC_CELL64LV2
+
+#undef TARGET_VALID_POINTER_MODE
+#define TARGET_VALID_POINTER_MODE rs6000_cell64lv2_valid_pointer_mode
+
+static bool rs6000_cell64lv2_valid_pointer_mode(enum machine_mode mode)
+{
+	return (mode == SImode || (TARGET_64BIT && mode == DImode) || mode == ptr_mode || mode == Pmode);
+}
+
+#endif
+
 struct gcc_target targetm = TARGET_INITIALIZER;
 
 #include "gt-rs6000.h"
