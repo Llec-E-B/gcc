@@ -1,0 +1,39 @@
+; Options for the SPU CellOS Lv-2
+;
+; Copyright (C) 2026 Gustavo Ramos Carvalho <gc5142387@gmail.com>
+;
+; This file is part of GCC.
+;
+; GCC is free software; you can redistribute it and/or modify it under
+; the terms of the GNU General Public License as published by the Free
+; Software Foundation; either version 3, or (at your option) any later
+; version.
+;
+; GCC is distributed in the hope that it will be useful, but WITHOUT
+; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+; or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public
+; License for more details.
+;
+; You should have received a copy of the GNU General Public License
+; along with GCC; see the file COPYING3.  If not see
+; <http://www.gnu.org/licenses/>.
+
+
+
+; spu CellOS Lv-2 options.
+
+
+msputhread
+Target Report
+CellOS Lv-2 SPU Thread.
+
+mspuraw
+Target Report
+CellOS Lv-2 Raw SPU.
+
+mspuisolatedmodule
+Target Report
+CellOS Lv-2 Isolated SPU Module.
+
+
+; This comment is to ensure we retain the blank line above.
